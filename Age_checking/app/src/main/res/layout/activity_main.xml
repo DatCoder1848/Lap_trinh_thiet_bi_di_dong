@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width = "match_parent"
+    android:layout_height = "match_parent"
+    android:background="@color/black"
+    android:orientation = "vertical"
+    android:padding="10dp"
+    tools:context = ".MainActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="2">
+        <LinearLayout
+            android:id="@+id/mainContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <TextView
+                android:id="@+id/errorText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/purple_beautiful"
+                android:fontFamily="@font/robotomono_bold"
+                android:textSize="15sp"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/assignmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_gravity="center"
+                android:text="Thực hành 02"
+                android:fontFamily="@font/robotomono_bold"
+                android:textColor="@color/teal_200"
+                android:textSize="30sp"/>
+
+            <LinearLayout
+                android:id="@+id/infoContainer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+                <LinearLayout
+                    android:id="@+id/nameContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="Họ và tên"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/teal_200"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:id="@+id/editTextName"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:hint="Input Name Here"
+                        android:textColorHint="@color/teal_200"
+                        android:textColor="@color/teal_200"
+                        android:background="@drawable/radient_frame"/>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"/>
+
+                <LinearLayout
+                    android:id="@+id/ageContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:weightSum="7">
+                    <TextView
+                        android:layout_weight="2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Tuổi"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/teal_200"
+                        android:textSize="18dp"/>
+
+                    <EditText
+                        android:id="@+id/editTextAge"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:paddingLeft="30dp"
+                        android:paddingTop="15dp"
+                        android:paddingBottom="15dp"
+                        android:hint="Input Age Here"
+                        android:textColorHint="@color/teal_200"
+                        android:textColor="@color/teal_200"
+                        android:background="@drawable/radient_frame"/>
+                </LinearLayout>
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_height="20dp"/>
+
+                <Button
+                    android:id="@+id/checkButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:minWidth="50dp"
+                    android:minHeight="50dp"
+                    android:text="Kiểm tra ngay!"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/resultsContainer"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:visibility="invisible">
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="20dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Kết quả"
+                android:textColor="@color/teal_200"
+                android:textSize="30sp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="60dp"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                android:weightSum="3">
+                <TextView
+                    android:id="@+id/nameResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="Zenrick"
+                    android:textSize="20sp"
+                    android:textColor="@color/teal_200"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="là"
+                    android:textColor="@color/teal_200"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/ageResult"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="a COOL GUY !!!"
+                    android:textColor="@color/teal_200"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

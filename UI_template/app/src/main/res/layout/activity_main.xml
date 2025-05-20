@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="25dp"
+    android:theme="@style/Theme.UI_template"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:id="@+id/mainContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/iconBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="4"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/detailsButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="9dp"
+                android:scaleType="centerInside"
+                android:background="@drawable/button_shape"
+                android:src="@drawable/details"
+                android:contentDescription="@string/details_button_description"/>
+
+            <Space
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"/>
+
+            <ImageButton
+                android:id="@+id/nextButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:padding="9dp"
+                android:scaleType="centerInside"
+                android:src="@drawable/next"
+                android:background="@drawable/button_shape"
+                android:gravity="right"
+                android:contentDescription="@string/next_button_description"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/userContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_centerInParent="true"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/circle"
+                android:clipToOutline="true">
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:src="@drawable/avatar"
+                    android:scaleType="centerCrop"/>
+            </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/userInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="20dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Zen"
+                    android:textSize="40sp"/>
+                    <!--android:fontFamily="@font/RobotoMono_Bold"/> -->
+
+                <TextView
+                    android:id="@+id/adress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Lớp lập trình thiết bị di động, at UTH"
+                    android:textSize="20sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

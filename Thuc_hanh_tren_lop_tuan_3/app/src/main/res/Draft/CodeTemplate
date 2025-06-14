@@ -1,0 +1,142 @@
+@Composable
+fun Card3D(index: Int, offsetX: Dp, rotation: Float, zIndex: Float) {
+    Card(
+        modifier = Modifier
+            .fillMaxHeight(0.5f)
+            .aspectRatio(0.5f)
+            .offset(x = offsetX, y = (-50).dp)
+            .padding(8.dp)
+            .graphicsLayer {
+                rotationY = rotation
+                cameraDistance = 12 * density
+            }
+            .zIndex(zIndex),
+        colors = CardDefaults.cardColors(Color(0xAAEE88AA)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+    ) {
+        Text(
+            text = "Card $index",
+            modifier = Modifier.padding(16.dp),
+            fontSize = 20.sp
+        )
+    }
+}
+
+
+
+@Composable
+fun CardStack3D() {
+    var cardIndex by remember { mutableStateOf(1) }
+
+    val currentCard = cardIndex
+    val prevCard = if (cardIndex > 1) cardIndex - 1 else 5
+    val nextCard = if (cardIndex < 5) cardIndex + 1 else 1
+
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(20.dp),
+        contentAlignment = Alignment.Center
+    ) {
+        // Previous Card
+        Card3D(
+            index = prevCard,
+            offsetX = animateDpAsState(targetValue = (-60).dp).value,
+            rotation = animateFloatAsState(targetValue = -10f).value,
+            zIndex = 1f,
+        )
+
+        // Next Card
+        Card3D(
+            index = nextCard,
+            offsetX = animateDpAsState(targetValue = (60).dp).value,
+            rotation = animateFloatAsState(targetValue = 10f).value,
+            zIndex = 1f,
+        )
+
+        // Current Card
+        Card3D(
+            index = currentCard,
+            offsetX = animateDpAsState(targetValue = 0.dp).value,
+            rotation = animateFloatAsState(targetValue = 0f).value,
+            zIndex = 2f,
+        )
+
+        // Navigation Buttons
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.BottomCenter)
+        ) {
+            OutlinedButton(
+                onClick = {
+                    cardIndex = if (cardIndex > 1) cardIndex - 1 else 5
+                },
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1.3f),
+                shape = ButtonDefaults.outlinedShape
+            ) {
+                Column(
+                    Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.DoubleArrow,
+                        contentDescription = null,
+                        modifier = Modifier
+                            .rotate(180f)
+                            .padding(end = 8.dp)
+                    )
+                    Text("Prev", fontSize = 20.sp)
+                }
+            }
+
+            OutlinedButton(
+                onClick = {
+                    cardIndex = if (cardIndex < 5) cardIndex + 1 else 1
+                },
+                modifier = Modifier
+                    .weight(1f)
+                    .aspectRatio(1.3f),
+                shape = ButtonDefaults.outlinedShape
+            ) {
+                Column(
+                    Modifier.fillMaxSize(),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Icon(
+                        imageVector = Icons.Filled.DoubleArrow,
+                        contentDescription = null,
+                        modifier = Modifier.padding(end = 8.dp)
+                    )
+                    Text("Next", fontSize = 20.sp)
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun Card3D(index: Int, offsetX: Dp, rotation: Float, zIndex: Float) {
+    Card(
+        modifier = Modifier
+            .fillMaxHeight(0.5f)
+            .aspectRatio(0.5f)
+            .offset(x = offsetX, y = (-50).dp)
+            .padding(8.dp)
+            .graphicsLayer {
+                rotationY = rotation
+                cameraDistance = 12 * density
+            }
+            .zIndex(zIndex),
+        colors = CardDefaults.cardColors(Color(0xAAEE88AA)),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
+    ) {
+        Text(
+            text = "Card $index",
+            modifier = Modifier.padding(16.dp),
+            fontSize = 20.sp
+        )
+    }
+}

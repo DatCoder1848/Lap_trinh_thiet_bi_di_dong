@@ -11,7 +11,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity
 {
-    private EditText editTextMail;
+    TextView prName, usName;
+    Button btn;
+    @Override
+    protected void onCreate (Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.thuc_hanh_buoi_3_ten_lop);
+
+        prName = findViewById(R.id.practice_name);
+        usName = findViewById(R.id.user_name);
+        btn = findViewById(R.id.btn);
+
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            public void onClick(View v) {
+                if (usName.getText() == "Hello !")
+                {
+                    usName.setText("My name is Zen !");
+                }
+                else
+                    usName.setText("Hello !");
+            }
+        });
+    }
+
+    /*private EditText editTextMail;
     TextView errortText;
     Button submitButton;
 
@@ -55,5 +81,5 @@ public class MainActivity extends AppCompatActivity
             return Patterns.EMAIL_ADDRESS.matcher(email).matches();
         }
     }
-
+*/
 }

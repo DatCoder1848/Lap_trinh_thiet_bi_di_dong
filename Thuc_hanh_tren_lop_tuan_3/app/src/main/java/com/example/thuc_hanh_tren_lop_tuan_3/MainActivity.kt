@@ -34,6 +34,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AirportShuttle
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.material.icons.filled.DoubleArrow
+import androidx.compose.material.icons.filled.SignalCellularAlt
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 import androidx.compose.material3.Button
@@ -128,7 +129,7 @@ fun MainApp() {
         composable("PasswordField") { PasswordFieldScreen(navController) }
         composable("Clickable") { ClickableComponentsScreen(navController) }
         // Layout:
-        composable(""){}
+
         // Material Design:
 
         // Animation:
@@ -147,7 +148,6 @@ fun TurnBackButton(navController: NavHostController){
             modifier = Modifier.size(20.dp)
         )
     }
-
 }
 
 
@@ -227,6 +227,10 @@ fun MainScreen(navController: NavHostController){
                 .padding(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
+            Icon(
+                imageVector = Icons.Filled.SignalCellularAlt,
+                contentDescription = null
+            )
             Text(
                 text = "Display",
                 fontWeight = FontWeight.SemiBold,
@@ -1430,15 +1434,16 @@ fun BoxScreen(navController: NavHostController){
 @Preview(showBackground = true)
 @Composable
 fun MainScreenPreview(){
-    MainScreen(rememberNavController())
+    Test3()
 }
 
 //@Preview(showBackground = true)
 @Composable
 fun TextScreenPreview(){
-    TextScreen(rememberNavController())
+    Test()
 }
 
+/*
 //@Preview(showBackground = true)
 @Composable
 fun IconScreenPreview(){
@@ -1466,5 +1471,5 @@ fun TextFieldScreenPreview(){
 @Preview(showBackground = true)
 @Composable
 fun BasicTextFieldPreview(){
-    BoxScreen(rememberNavController())
-}
+    OutlinedTextFieldScreen(rememberNavController())
+}*/

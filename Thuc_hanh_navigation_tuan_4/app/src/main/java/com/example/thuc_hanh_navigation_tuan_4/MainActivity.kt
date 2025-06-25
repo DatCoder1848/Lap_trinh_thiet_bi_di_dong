@@ -50,12 +50,18 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.thuc_hanh_navigation_tuan_4.Todo_app.View.AddCardScreen
+import com.example.thuc_hanh_navigation_tuan_4.Todo_app.View.CardListScreen
+import com.example.thuc_hanh_navigation_tuan_4.Todo_app.View.ProductScreen
+import com.example.thuc_hanh_navigation_tuan_4.Todo_app.ViewModel.CardViewModel
+import com.example.thuc_hanh_navigation_tuan_4.Todo_app.ViewModel.ProductViewModel
 import com.example.thuc_hanh_navigation_tuan_4.ui.theme.Thuc_hanh_navigation_tuan_4Theme
 import kotlinx.coroutines.delay
 
@@ -75,11 +81,18 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainApp(){
     var navController = rememberNavController()
+    val cardViewModel: CardViewModel = viewModel()
+    val productViewModel: ProductViewModel = viewModel()
     NavHost(navController = navController, startDestination = "splash"){
-        composable("splash"){SplashScreen(navController)}
+        composable("splash") {SplashScreen(navController)}
         composable("first") { FirstIntroScreen(navController) }
-        composable("second"){ SecondIntroScreen(navController) }
-        composable("third"){ ThirdIntroScreen(navController) }
+        composable("second") { SecondIntroScreen(navController) }
+        composable("third") { ThirdIntroScreen(navController) }
+        composable("todo_list") { CardListScreen(navController, cardViewModel)}
+        composable("add_task") { AddCardScreen(navController, cardViewModel) }
+        composable("place_holder_1") {  }
+        composable("place_holder_2") { }
+        composable("product_detail") { ProductScreen(navController, productViewModel) }
     }
 }
 
@@ -157,22 +170,17 @@ fun ThirdIntroScreen(navController: NavHostController){
             imageResource = R.drawable.third_intro_img,
             description = "The advantage of this application is that it also provides reminders for you so you don't forget to keep doing your assignments well and according to the time you have set",
             prevRoute = "second",
-            nextRoute = "splash"
+            nextRoute = "todo_list"
         )
     }
 }
 
 /////////////// Preview ///////////////
-@Preview(showBackground = true)
-@Composable
-fun SplashScreenPreview(){
-    SplashScreen(rememberNavController())
-}
 
 @Preview(showBackground = true)
 @Composable
 fun ShowDemo(){
-    FirstIntroScreen(rememberNavController())
+    ThirdIntroScreen(rememberNavController())
 }
 
 
